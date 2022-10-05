@@ -1,5 +1,9 @@
 python-dotenv
-Flask==1.1.1
+Flask==2.1.0
 requests==2.20.0
 itsdangerous==2.0.1
 werkzeug==2.0.3
+flask-wtf
+xmltodict
+bs4
+lxml
