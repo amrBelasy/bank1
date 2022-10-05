@@ -1,4 +1,4 @@
-python-dotenv==0.10.1
+python3-dotenv
 Flask==1.1.1
 requests==2.20.0
 itsdangerous==2.0.1
