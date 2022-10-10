@@ -203,7 +203,7 @@ class riskForm():
             # userInput2 = []
             for i in Terms:
                 userInput2.append(i.text)
-            print("data from xml: ", userInput2)
+            # print("data from xml: ", userInput2)
             age = int(userInput2[0])
             sex = str(userInput2[1])
             bmi = float(userInput2[2])
@@ -219,7 +219,7 @@ class riskForm():
                 "children", "smoker", "region"], "values": userInput }]}
 
             print("Payload is: ")
-            print(payload_scoring)
+            print(json.dumps(payload_scoring))
             header_online = {
                 'Cache-Control': 'no-cache',
                 'Content-Type': 'application/json',
@@ -232,7 +232,8 @@ class riskForm():
                 headers=header_online)
 
             output = json.loads(response_scoring.text)
-            print(output)
+            print("Response Data: ", json.dumps(output))
+            print("Input & Output Data: ", json.dumps(payload_scoring) , json.dumps(output))
             for key in output:
                 ab = output[key]
             
@@ -246,7 +247,7 @@ class riskForm():
             print(roundedCharge)
             form.jsonf = output
 
-            print(xmltodict.unparse(output, pretty=True))
+            # print(xmltodict.unparse(output, pretty=True))
             form.xml = xmltodict.unparse(output, pretty=True)
 
             return render_template('index.html', form=form)
