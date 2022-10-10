@@ -243,6 +243,7 @@ class riskForm():
             roundedCharge = round(bc[0][0],2)
             # print("amr belasy")
             form.abc = roundedCharge # this returns the response back to the front page
+            print(roundedCharge)
             form.jsonf = output
 
             print(xmltodict.unparse(output, pretty=True))
@@ -251,7 +252,7 @@ class riskForm():
             return render_template('index.html', form=form)
 
         else:
-            return render_template('index.html', form=form)
+            return render_template('index.html', form=form) 
 
 
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
